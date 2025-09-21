@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Migration Dashboard</title>
+<script src="https://unpkg.com/htmx.org@1.9.3"></script>
+</head>
+<body>
+<h2>Migration Dashboard</h2>
+<form hx-post="/start" hx-target="#progress" hx-swap="innerHTML">
+    <label>Help Scout API Key: <input type="password" name="helpscout_key" required></label><br>
+    <label>Help Scout Collection ID: <input type="text" name="collection_id" required></label><br>
+    <button type="submit">Start Migration</button>
+</form>
+
+<div id="progress" style="margin-top:20px; font-family:monospace; white-space:pre-wrap;"></div>
+
+<script>
+function updateProgress() {
+    fetch("/progress").then(r=>r.json()).then(data=>{
+        document.getElementById("progress").innerText = data.logs.join("\n");
+        setTimeout(updateProgress, 2000);
+    });
+}
+updateProgress();
+</script>
+</body>
+</html>
