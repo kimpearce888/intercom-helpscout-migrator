@@ -4,9 +4,9 @@ import requests, os, re, time, base64
 app = Flask(__name__)
 app.secret_key = os.getenv("FLASK_SECRET", "supersecret")
 
-INTERCOM_CLIENT_ID = os.getenv("INTERCOM_CLIENT_ID")
-INTERCOM_CLIENT_SECRET = os.getenv("INTERCOM_CLIENT_SECRET")
-INTERCOM_REDIRECT_URI = os.getenv("INTERCOM_REDIRECT_URI", "https://yourapp.onrender.com/oauth/callback")
+INTERCOM_CLIENT_ID = os.getenv("a8a92a69-ed1a-4535-9242-4ab1a27adfe4")
+INTERCOM_CLIENT_SECRET = os.getenv("39f8d42c-c7bc-4a9a-ad69-44a37c66ddb1")
+INTERCOM_REDIRECT_URI = os.getenv("INTERCOM_REDIRECT_URI", "https://intercom-helpscout-migrator.onrender.com/oauth/callback")
 
 # In-memory log store
 progress_log = []
